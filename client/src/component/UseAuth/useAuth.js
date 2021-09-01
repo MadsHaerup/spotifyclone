@@ -7,7 +7,7 @@ export default function useAuth(code) {
   const [expiresIn, setExpiresIn] = useState();
 
   useEffect(() => {
-    axios.post('http://localhost:3001/login',{
+    axios.post('https://fervent-lalande-6a870e.netlify.app/login',{
       code,
     })
     .then(res =>{
@@ -25,7 +25,7 @@ export default function useAuth(code) {
     if(!refreshToken || expiresIn) return
 
     const interval = setInterval(()=>{
-      axios.post('http://localhost:3001/refresh',{
+      axios.post('https://fervent-lalande-6a870e.netlify.app/refresh',{
         refreshToken,
       })
       .then(res =>{
